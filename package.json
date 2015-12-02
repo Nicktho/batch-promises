@@ -1,0 +1,23 @@
+{
+  "name": "batch-promises",
+  "version": "0.0.1",
+  "description": "easily batch promises",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nicktho/batch-promises.git"
+  },
+  "keywords": [
+    "batch",
+    "promises"
+  ],
+  "author": "Nick Matenaar <matenaar92@gmail.com> (http://nickmatenaar.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nicktho/batch-promises/issues"
+  },
+  "homepage": "https://github.com/Nicktho/batch-promises#readme"
+}
