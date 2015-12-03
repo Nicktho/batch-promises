@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Nicktho/batch-promises/issues"
   },
-  "homepage": "https://github.com/Nicktho/batch-promises#readme"
+  "homepage": "https://github.com/Nicktho/batch-promises#readme",
+  "devDependencies": {
+    "mocha": "^2.3.4"
+  }
 }
