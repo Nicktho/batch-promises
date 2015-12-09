@@ -35,6 +35,13 @@ describe('batchPromises', function() {
     });
   });
 
+  it('should not require iteratee function', function() {
+    return batchPromises(2, [1,2,3,4,5])
+    .then(function(res) {
+      assert.deepEqual(res, [1,2,3,4,5]);
+    });
+  })
+
   it('should reject on an error and halt execution', function() {
     var highestPromise;
     var error = new Error('something went wrong');
