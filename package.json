@@ -4,7 +4,7 @@
   "description": "easily batch promises",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "./node_modules/.bin/_mocha test"
   },
   "repository": {
     "type": "git",
