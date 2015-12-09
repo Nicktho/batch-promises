@@ -6,7 +6,7 @@ module.exports = function(batchSize, arr, fn) {
   .reduce(function(chain, group) {
     return chain.then(function() {
       return Promise.all(group.map(function(x, i) {
-        return fn(x, i).then(function(result) {
+        return (!fn ? Promise.resolve(x) : fn(x, i))["then"](function(result) {
           results.push(result);
         });
       }));
