@@ -1,18 +1,16 @@
 module.exports = function(batchSize, arr, fn) {
-  var results = [];
-  return arr.map(function(_, i) {
-    return i%batchSize ? [] : arr.slice(i, i+batchSize);
-  })
-  .reduce(function(chain, group) {
-    return chain.then(function() {
-      return Promise.all(group.map(function(x, i) {
-        return fn(x, i).then(function(result) {
-          results.push(result);
-        });
-      }));
-    });
-  }, Promise.resolve())
-  .then(function() {
-    return results;
-  });
+    return arr
+    .map(function(_, i) {
+        return i%batchSize ? [] : arr.slice(i, i+batchSize);
+    })
+    .map(function(group) {
+        return function(res) {
+            return Promise.all(group.map(fn)).then(function(r) {
+                return res.concat(r);
+            });
+        }
+    })
+    .reduce(function(chain, work) {
+        return chain.then(work);
+    }, Promise.resolve([]));
 }
