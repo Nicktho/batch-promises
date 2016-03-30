@@ -15,6 +15,19 @@ describe('batchPromises', function() {
     });
   });
 
+  it('should work with a promise returning an array', function() {
+    return batchPromises(2, Promise.resolve([1,2,3,4,5]), function(i) {
+      return new Promise(function(resolve, reject) {
+        setTimeout(function() {
+          resolve(i)
+        }, 100);
+      });
+    })
+    .then(function(res) {
+      assert.deepEqual(res, [1,2,3,4,5]);
+    });
+  });
+
   it('should batch promises', function() {
     var mostConcurrent = 0;
     var currentBatch = 0;
