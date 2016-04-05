@@ -7,7 +7,7 @@ Easily batch promises
 ## Api
 
 ```js
-batchPromises(int: batchSize, array: Collection, i => Promise: Iteratee)
+batchPromises(int: batchSize, array: (Collection|Promise<Array>), i => Promise: Iteratee)
 ```
 
 The `Promise: Iteratee` will be called after each batch.
