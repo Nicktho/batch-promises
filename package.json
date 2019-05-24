@@ -1,6 +1,6 @@
 {
   "name": "batch-promises",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "easily batch promises",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/Nicktho/batch-promises#readme",
   "devDependencies": {
-    "mocha": "^2.3.4"
+    "mocha": "^6.1.4"
   }
 }
