@@ -1,19 +1,13 @@
-module.exports = function(batchSize, thenArr, fn) {
-    return Promise.resolve(thenArr)
-    .then(function(arr) {
-        return arr
-        .map(function(_, i) {
-            return i%batchSize ? [] : arr.slice(i, i+batchSize);
-        })
-        .map(function(group) {
-            return function(res) {
-                return Promise.all(group.map(fn)).then(function(r) {
-                    return res.concat(r);
-                });
-            }
-        })
-        .reduce(function(chain, work) {
-            return chain.then(work);
-        }, Promise.resolve([]));
-    });
+'use strict';
+
+/** @type {import('./index')} */
+function batchPromises(batchSize, collection, callback) {
+  return Promise.resolve(collection).then((arr) =>
+    arr
+      .map((_, i) => (i % batchSize ? [] : arr.slice(i, i + batchSize)))
+      .map((group) => (res) => Promise.all(group.map(callback)).then((r) => res.concat(r)))
+      .reduce((chain, work) => chain.then(work), Promise.resolve([]))
+  );
 }
+
+module.exports = batchPromises;
