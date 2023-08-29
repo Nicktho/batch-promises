@@ -2,7 +2,7 @@
 
 Easily batch promises.
 
-**NOTE**: Requires Promsies to be supported by runtime or polyfilled.
+**NOTE**: Requires Promises to be supported by runtime or polyfilled.
 
 ## API
 
